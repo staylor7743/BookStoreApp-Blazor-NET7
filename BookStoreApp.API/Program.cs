@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BookStoreApp.API.Data;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
-using Serilog;
+
 
 namespace BookStoreApp.API
 {
@@ -13,7 +14,7 @@ namespace BookStoreApp.API
 
             // Add services to the container.
             var connString = builder.Configuration.GetConnectionString("BookStoreAppDbConnection");
-           // builder.Services.AddDbContext<BookStoreDbContext>(options => options.UseSqlServer(connString));
+            builder.Services.AddDbContext<BookStoreDbContext>(options => options.UseSqlServer(connString));
 
 
             builder.Services.AddControllers();
